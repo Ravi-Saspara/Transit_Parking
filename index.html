@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit Building Parking Dashboard</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #18bc9c;
+            --danger-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            color: #7f8c8d;
+            margin: 5px 0 0 0;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Building Card Styling */
+        .building-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .building-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .building-name {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Data Rows */
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .data-label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .data-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Highlight Remaining Space */
+        .remaining-space {
+            background-color: #ebf5fb;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .remaining-space .data-value {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Warning if parking is getting full */
+        .low-space .remaining-space {
+            background-color: #fce4d6;
+        }
+        .low-space .remaining-space .data-value {
+            color: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Transit Buildings Parking Monitor</h1>
+            <p>Real-time space and occupancy overview</p>
+        </header>
+
+        <div class="dashboard-grid">
+
+            <div class="building-card" data-total="150" data-parked="95">
+                <h2 class="building-name">Transit Hub - Building A</h2>
+                <div class="data-row">
+                    <span class="data-label">Total Capacity:</span>
+                    <span class="data-value total-val">150</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Vehicles Parked:</span>
+                    <span class="data-value parked-val">95</span>
+                </div>
+                <div class="data-row remaining-space">
+                    <span class="data-label">Available Spaces:</span>
+                    <span class="data-value remaining-val">0</span>
+                </div>
+            </div>
+
+            <div class="building-card" data-total="200" data-parked="185">
+                <h2 class="building-name">Transit Hub - Building B</h2>
+                <div class="data-row">
+                    <span class="data-label">Total Capacity:</span>
+                    <span class="data-value total-val">200</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Vehicles Parked:</span>
+                    <span class="data-value parked-val">185</span>
+                </div>
+                <div class="data-row remaining-space">
+                    <span class="data-label">Available Spaces:</span>
+                    <span class="data-value remaining-val">0</span>
+                </div>
+            </div>
+
+            <div class="building-card" data-total="80" data-parked="30">
+                <h2 class="building-name">Transit Hub - Building C</h2>
+                <div class="data-row">
+                    <span class="data-label">Total Capacity:</span>
+                    <span class="data-value total-val">80</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Vehicles Parked:</span>
+                    <span class="data-value parked-val">30</span>
+                </div>
+                <div class="data-row remaining-space">
+                    <span class="data-label">Available Spaces:</span>
+                    <span class="data-value remaining-val">0</span>
+                </div>
+            </div>
+
+            <div class="building-card" data-total="120" data-parked="45">
+                <h2 class="building-name">Transit Hub - Building D</h2>
+                <div class="data-row">
+                    <span class="data-label">Total Capacity:</span>
+                    <span class="data-value total-val">120</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Vehicles Parked:</span>
+                    <span class="data-value parked-val">45</span>
+                </div>
+                <div class="data-row remaining-space">
+                    <span class="data-label">Available Spaces:</span>
+                    <span class="data-value remaining-val">0</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // This script automatically runs when the page opens to calculate spaces
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.building-card');
+            
+            cards.forEach(card => {
+                // Get the total and parked values from the HTML attributes
+                const total = parseInt(card.getAttribute('data-total'));
+                const parked = parseInt(card.getAttribute('data-parked'));
+                
+                // Calculate remaining space
+                const remaining = total - parked;
+                
+                // Display the calculated remaining space
+                card.querySelector('.remaining-val').textContent = remaining;
+                
+                // Extra feature: If less than 15% space is left, make it turn red/alert color
+                if (remaining / total < 0.15) {
+                    card.classList.add('low-space');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
