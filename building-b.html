@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub - Bldg B Status</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="building-card" data-total="200" data-parked="185">
+            <h2 class="building-name">Hub - Bldg B</h2>
+            <div class="card-content">
+                <div class="data-row">
+                    <span class="data-label">Total:</span>
+                    <span class="data-value total-val">200</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Parked:</span>
+                    <span class="data-value parked-val">185</span>
+                </div>
+                <div class="data-row remaining-space">
+                    <span class="data-label">Available:</span>
+                    <span class="data-value remaining-val">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const card = document.querySelector('.building-card');
+            const total = parseInt(card.getAttribute('data-total'));
+            const parked = parseInt(card.getAttribute('data-parked'));
+            const remaining = total - parked;
+            
+            card.querySelector('.remaining-val').textContent = remaining;
+            
+            if (remaining / total < 0.15) {
+                card.classList.add('low-space');
+            }
+        });
+    </script>
+</body>
+</html>

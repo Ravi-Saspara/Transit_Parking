@@ -1,0 +1,142 @@
+:root {
+    /* 🎨 BACKGROUND & THEME COLORS (MODIFIED FOR BLACK & RED THEME) */
+    --bg-color: #000000;          /* Full screen background (Pure Black) */
+    --card-bg: #000000;          /* Inside card background (Pure Black) */
+    --primary-color: #ff0000;     /* Main text, titles, lines, and borders (Pure Red) */
+    --secondary-color: #ff0000;   /* Highlighted values/status metrics (Pure Red) */
+    --danger-color: #ff0000;      /* Warning alerts threshold color (Pure Red) */
+    --label-color: #ff0000;       /* Subtext data labels (Pure Red) */
+
+    /* 📐 CONTAINER SIZE ADJUSTMENTS */
+    --card-width: 400px;         /* Adjust width of your screen block */
+    --card-height: 200px;        /* Adjust height of your screen block */
+
+    /* 🔤 FONT SIZE ADJUSTMENTS */
+    --title-font-size: 25px;   /* Size of the main building/dashboard names */
+    --data-font-size: 20px;    /* Size of normal total/parked data rows */
+    --avail-font-size: 20px;   /* Size of the highlighted 'Available' value */
+}
+
+/* --- STRUCTURE STYLES --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Stops scrollbars from breaking LED screen alignments */
+}
+
+.container {
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Title Page Layout styling */
+.main-title-view {
+    background: var(--card-bg);
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 3px solid var(--primary-color); /* Clean red frame outline */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.main-title-view h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: var(--title-font-size);
+    line-height: 1.4;
+}
+
+.main-title-view p {
+    color: var(--secondary-color);
+    margin: 15px 0 0 0;
+    font-size: var(--data-font-size);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Building Card Layout styling */
+.building-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 3px solid var(--primary-color); /* Full solid red structural container boundary */
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.building-name {
+    font-size: var(--title-font-size);
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 2px;
+    border-bottom: 2px solid var(--primary-color); /* Red divider line beneath building title */
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--data-font-size);
+}
+
+.data-label {
+    color: var(--label-color);
+    font-weight: 500;
+}
+
+.data-value {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Accent Highlight Box surrounding Available spaces info */
+.remaining-space {
+    border: 2px solid var(--primary-color); /* Sharp red emphasis outline */
+    background-color: transparent;           /* Removed blue/light background for deep black alignment */
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.remaining-space .data-value {
+    color: var(--secondary-color);
+    font-size: var(--avail-font-size);
+}
+
+/* Alerts status modifications (Colors remain strictly red to preserve your dashboard aesthetic) */
+.low-space {
+    border-color: var(--danger-color);
+}
+.low-space .remaining-space {
+    background-color: transparent;
+    border-color: var(--danger-color);
+}
+.low-space .remaining-space .data-value {
+    color: var(--danger-color);
+}
