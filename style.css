@@ -2,10 +2,10 @@
     /* 🎨 BACKGROUND & THEME COLORS (MODIFIED FOR BLACK & RED THEME) */
     --bg-color: #000000;          /* Full screen background (Pure Black) */
     --card-bg: #000000;          /* Inside card background (Pure Black) */
-    --primary-color: #ff0000;     /* Main text, titles, lines, and borders (Pure Red) */
-    --secondary-color: #ff0000;   /* Highlighted values/status metrics (Pure Red) */
-    --danger-color: #ff0000;      /* Warning alerts threshold color (Pure Red) */
-    --label-color: #ff0000;       /* Subtext data labels (Pure Red) */
+    --primary-color: #FFFFFF;     /* Main text, titles, lines, and borders (Pure Red) */
+    --secondary-color: #FFFFFF;   /* Highlighted values/status metrics (Pure Red) */
+    --danger-color: #FFFFFF;      /* Warning alerts threshold color (Pure Red) */
+    --label-color: #FFFFFF;       /* Subtext data labels (Pure Red) */
 
     /* 📐 CONTAINER SIZE ADJUSTMENTS */
     --card-width: 400px;         /* Adjust width of your screen block */
